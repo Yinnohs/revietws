@@ -14,9 +14,4 @@ public class CreateReviewEvent extends Event<Review> {
         super.createdAt = LocalDateTime.now();
         super.EventName = this.getClass().getName();
     }
-
-    @Override
-    public void executeEvent() {
-        throw new RuntimeException("not implemented");
-    }
 }

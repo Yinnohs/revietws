@@ -1,6 +1,8 @@
 package com.yinnoh.reviwts.reviewWrite.reviews.application;
 
 import com.yinnoh.reviwts.reviewWrite.reviews.application.dto.CreateReviewRequest;
+import com.yinnoh.reviwts.reviewWrite.reviews.domain.entity.Review;
+import com.yinnoh.reviwts.reviewWrite.reviews.domain.ports.driver.EventSender;
 import com.yinnoh.reviwts.reviewWrite.reviews.domain.ports.driver.ReviewService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -21,7 +23,8 @@ public class CreateReviewUseCaseShould {
                 "test description hello"
         );
         ReviewService service = Mockito.mock(ReviewService.class);
-        CreateReviewUseCase useCase = new CreateReviewUseCase(service);
+        EventSender<Review> eventSender = Mockito.mock(EventSender.class);
+        CreateReviewUseCase useCase = new CreateReviewUseCase(service, eventSender);
 
         // when / then
         Assertions.assertDoesNotThrow(()-> {useCase.execute(request);});
