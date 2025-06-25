@@ -1,0 +1,16 @@
+services:
+  postgres-db-write-review:
+    image: postgres:latest
+    ports:
+      - "5050:5432"
+    environment:
+      POSTGRES_USER: yinnohs
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: review-write
+    networks:
+      review-network:
+    volumes:
+      - ./db/review/write/postgres:/var/lib/postgresql/data
+
+networks:
+  review-network:
