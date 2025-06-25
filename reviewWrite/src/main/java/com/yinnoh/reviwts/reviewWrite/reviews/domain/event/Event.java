@@ -1,4 +1,4 @@
-package com.yinnoh.reviwts.reviewWrite.reviews.application.event;
+package com.yinnoh.reviwts.reviewWrite.reviews.domain.event;
 
 import java.time.LocalDateTime;
 

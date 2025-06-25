@@ -1,7 +1,7 @@
 package com.yinnoh.reviwts.reviewWrite.reviews.application;
 
 import com.yinnoh.reviwts.reviewWrite.reviews.application.dto.CreateReviewRequest;
-import com.yinnoh.reviwts.reviewWrite.reviews.domain.ports.driven.ReviewService;
+import com.yinnoh.reviwts.reviewWrite.reviews.domain.ports.driver.ReviewService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

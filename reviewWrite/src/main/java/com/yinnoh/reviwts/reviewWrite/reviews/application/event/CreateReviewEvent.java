@@ -1,6 +1,7 @@
 package com.yinnoh.reviwts.reviewWrite.reviews.application.event;
 
 import com.yinnoh.reviwts.reviewWrite.reviews.domain.entity.Review;
+import com.yinnoh.reviwts.reviewWrite.reviews.domain.event.Event;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
