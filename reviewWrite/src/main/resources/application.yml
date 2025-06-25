@@ -2,10 +2,13 @@ spring:
   application:
     name: reviewWrite
   datasource:
-    url: jdbc:postgresql://localhost:5432/my_database
+    url: jdbc:postgresql://localhost:5050/review-write
     username: yinnohs
     password: 123
     driver-class-name: org.postgresql.Driver
+
+server:
+  port: 5153
 
   jpa:
     hibernate:
@@ -14,4 +17,3 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-
