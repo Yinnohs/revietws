@@ -1,15 +1,19 @@
 package com.yinnoh.reviwts.reviewWrite.reviews.application;
 
 import com.yinnoh.reviwts.reviewWrite.reviews.application.dto.CreateReviewRequest;
+import com.yinnoh.reviwts.reviewWrite.reviews.domain.entity.Review;
 import com.yinnoh.reviwts.reviewWrite.reviews.domain.ports.driver.ReviewService;
 import lombok.RequiredArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 public class CreateReviewUseCase {
     private final ReviewService reviewService;
 
     public void execute(CreateReviewRequest request){
-        /*Review newReview = Review.builder()
+        Review newReview = Review.builder()
                 .id(UUID.randomUUID().toString())
                 .reviewedAccountId(request.reviewedAccountId())
                 .reviewerAccountId(request.reviewerAccountId())
@@ -21,7 +25,5 @@ public class CreateReviewUseCase {
                 .build();
 
         Review createdReview = reviewService.createReview(newReview);
-        */
-        throw new RuntimeException("Not implemented");
     }
 }

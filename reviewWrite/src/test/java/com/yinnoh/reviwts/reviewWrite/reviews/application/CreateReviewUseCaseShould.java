@@ -6,14 +6,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.lang.reflect.Executable;
 import java.util.UUID;
-import java.util.function.Function;
 
 public class CreateReviewUseCaseShould {
 
     @Test
-    public void generate_review(){
+    public void generate_review_in_database(){
         // given
         CreateReviewRequest request = new CreateReviewRequest(
                 UUID.randomUUID().toString(),
