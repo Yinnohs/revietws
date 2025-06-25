@@ -15,7 +15,7 @@ public class CreateReviewEvent extends Event<Review> {
     }
 
     @Override
-    public void sendEvent() {
-
+    public void executeEvent() {
+        throw new RuntimeException("not implemented");
     }
 }

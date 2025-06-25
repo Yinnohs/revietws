@@ -1,12 +1,8 @@
 package com.yinnoh.reviwts.reviewWrite.reviews.application;
 
 import com.yinnoh.reviwts.reviewWrite.reviews.application.dto.CreateReviewRequest;
-import com.yinnoh.reviwts.reviewWrite.reviews.domain.entity.Review;
 import com.yinnoh.reviwts.reviewWrite.reviews.domain.ports.driven.ReviewService;
 import lombok.RequiredArgsConstructor;
-
-import java.time.LocalDateTime;
-import java.util.UUID;
 
 @RequiredArgsConstructor
 public class CreateReviewUseCase {

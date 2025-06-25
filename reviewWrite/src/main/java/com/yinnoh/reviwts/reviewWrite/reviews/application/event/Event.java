@@ -8,5 +8,5 @@ public abstract class Event<T> {
     T data;
     LocalDateTime createdAt;
 
-    public abstract void sendEvent();
+    public abstract void executeEvent();
 }
