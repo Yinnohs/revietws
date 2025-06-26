@@ -1,5 +1,6 @@
 package com.yinnoh.reviwts.reviewWrite.reviews.infrastructure.model;
 
+import com.yinnoh.reviwts.reviewWrite.reviews.domain.entity.Review;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -12,21 +13,14 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
-@Entity(name = "reviews")
-public class ReviewModel {
+@Entity(name = "review-event-store")
+public class ReviewEventModel {
     @Id
-    String id;
+    public String eventId;
     @Column(nullable = false)
-    String reviewedAccountId;
+    public String EventName;
     @Column(nullable = false)
-    String reviewerAccountId;
+    public Review data;
     @Column(nullable = false)
-    double score;
-    String title;
-    String description;
-    @Column(nullable = false)
-    LocalDateTime createdAt;
-    @Column(nullable = false)
-    LocalDateTime updatedAt;
-    LocalDateTime deletedAt;
+    public LocalDateTime createdAt;
 }
