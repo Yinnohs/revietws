@@ -10,10 +10,12 @@ spring:
     config:
       enabled: false
       import-check: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
 
 server:
   port: 5153
-
   jpa:
     hibernate:
       ddl-auto: update
