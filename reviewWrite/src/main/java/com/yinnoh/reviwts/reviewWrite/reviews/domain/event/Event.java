@@ -12,6 +12,7 @@ public abstract class Event<T> {
     private String eventId;
     private String EventName;
     private T data;
+    private String entityId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private boolean processed;

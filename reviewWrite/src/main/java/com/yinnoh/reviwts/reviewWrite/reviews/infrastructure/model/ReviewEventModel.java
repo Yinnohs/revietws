@@ -28,6 +28,8 @@ public class ReviewEventModel {
     @Column(nullable = false, columnDefinition = "jsonb")
     private Review data;
     @Column(nullable = false)
+    private String entityId;
+    @Column(nullable = false)
     private LocalDateTime createdAt;
     @Column(nullable = false)
     private LocalDateTime updatedAt;

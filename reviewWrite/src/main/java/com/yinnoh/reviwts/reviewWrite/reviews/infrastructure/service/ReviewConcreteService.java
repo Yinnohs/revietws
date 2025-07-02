@@ -23,6 +23,7 @@ public class ReviewConcreteService implements ReviewService {
         ReviewEventModel eventToSave = ReviewEventModel.builder()
                 .eventId(reviewEvent.getEventId())
                 .data(reviewEvent.getData())
+                .entityId(reviewEvent.getEntityId())
                 .eventName(reviewEvent.getEventName())
                 .createdAt(now)
                 .updatedAt(now)

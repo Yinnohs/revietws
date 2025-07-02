@@ -10,11 +10,11 @@ public class CreateReviewEvent extends Event<Review> {
 
     public CreateReviewEvent(String eventId,
                              String eventName,
-                             Review data,
+                             Review review,
                              LocalDateTime createdAt,
                              LocalDateTime updatedAt,
                              boolean processed) {
-        super(eventId, eventName, data, createdAt, updatedAt, processed);
+        super(eventId, eventName, review, review.getId(), createdAt, updatedAt, processed);
     }
 
     public static CreateReviewEvent createNewEvent(Review data){
@@ -27,10 +27,10 @@ public class CreateReviewEvent extends Event<Review> {
 
     public static CreateReviewEvent createEvent(String eventId,
                                                 String eventName,
-                                                Review data,
+                                                Review review,
                                                 LocalDateTime createdAt,
                                                 LocalDateTime updatedAt,
                                                 boolean processed) {
-        return new CreateReviewEvent(eventId, eventName, data, createdAt, updatedAt, processed);
+        return new CreateReviewEvent(eventId, eventName, review, createdAt, updatedAt, processed);
     }
 }
