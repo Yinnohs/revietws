@@ -1,0 +1,14 @@
+{
+  "name": "reviews-write-debezium-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "plugin.name": "pgoutput",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "yinnohs",
+    "database.password": "123",
+    "database.dbname": "review-write",
+    "database.server.name": "review_write",
+    "table.include.list": "public.review_event_store"
+  }
+}

@@ -1,75 +1,73 @@
 services:
   postgres-db-write-review:
+    container_name: postgres-db-write-review
     hostname: postgres
     image: postgres:latest
     ports:
-      - "5050:5432"
+       - 5432:5432
     environment:
       POSTGRES_USER: yinnohs
       POSTGRES_PASSWORD: 123
       POSTGRES_DB: review-write
     command: ["postgres", "-c", "wal_level=logical"]
-    networks:
-      review-network:
     volumes:
       - ./db/review/write/postgres:/var/lib/postgresql/data
-    # ZooKeeper: Distributed coordination service used by Kafka
   zookeeper:
-      image: confluentinc/cp-zookeeper:latest  # Official Confluent ZooKeeper image
-      environment:
-        ZOOKEEPER_CLIENT_PORT: 2181  # Port for client connections
-        ZOOKEEPER_TICK_TIME: 2000    # Basic time unit in milliseconds
-      ports:
-        - 2181:2181  # Expose Zookeeper port 2181 from the container to the host
+    image: confluentinc/cp-zookeeper:5.5.3
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
 
-    # Kafka: Distributed streaming platform
   kafka:
-      image: confluentinc/cp-kafka:7.7.4 # Official Confluent Kafka image
-      depends_on:
-        - zookeeper  # Ensure ZooKeeper starts after Zookeeper
-      ports:
-        - 9092:9092  # Expose Kafka port to the host
+      image: confluentinc/cp-enterprise-kafka:5.5.3
+      depends_on: [ zookeeper ]
       environment:
-        KAFKA_BROKER_ID: 1  # Unique ID for this broker
-        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181  # ZooKeeper connection string
-        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
-        KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-        KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-        KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1  # # Number of replicas for internal Kafka topics, set to 1 for single-node setup
-
-    # Kafka UI: Web interface for Kafka management
-  kafka-ui:
-      image: provectuslabs/kafka-ui:latest  # Kafka UI image by Provectus
-      depends_on:
-        - kafka
-        - debezium  # Ensures Kafka UI starts after Kafka and Debezium
+        KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+        KAFKA_BROKER_ID: 1
+        KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+        KAFKA_JMX_PORT: 9991
       ports:
-        - 8080:8080  # Expose UI on port 8080
-      environment:
-        KAFKA_CLUSTERS_0_NAME: local  # Name for the Kafka cluster in the UI
-        KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092  # Kafka bootstrap server for the UI
-        KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181  # Zookeeper connection for the UI
-        KAFKA_CLUSTERS_0_KAFKACONNECT_0_NAME: debezium
-        KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS: http://debezium:8083
-        DYNAMIC_CONFIG_ENABLED: 'true'
-        AUTH_TYPE: LOGIN_FORM  # Authentication type for Kafka UI
-        SPRING_SECURITY_USER_NAME: admin  # username to login to ui
-        SPRING_SECURITY_USER_PASSWORD: Admin@123  # password to login to ui
+        - 9092:9092
 
-    # Debezium: Change Data Capture (CDC) connector
   debezium:
-      image: debezium/connect:2.7.3.Final  # Official Debezium Connect image
-      depends_on:
-        - kafka
-        - postgres-db-write-review  # Ensures Debezium starts after Kafka and PostgreSQL
-      ports:
-        - 8083:8083  # Maps Debezium port 8083 from the container to the host, Expose Debezium Connect REST API
+      image: debezium/connect:1.4
       environment:
-        GROUP_ID: 1001  # Unique ID for this Connect cluster
-        CONFIG_STORAGE_TOPIC: my_connect_configs  # Kafka topic for connector configs
-        OFFSET_STORAGE_TOPIC: my_connect_offsets  # Kafka topic for connector offsets
-        STATUS_STORAGE_TOPIC: my_connect_statuses  # Kafka topic for connector statuses
-        BOOTSTRAP_SERVERS: kafka:29092  # Kafka broker address
+        BOOTSTRAP_SERVERS: kafka:9092
+        GROUP_ID: 1
+        CONFIG_STORAGE_TOPIC: connect_configs
+        OFFSET_STORAGE_TOPIC: connect_offsets
+        KEY_CONVERTER: io.confluent.connect.avro.AvroConverter
+        VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
+        CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+        CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      depends_on: [ kafka ]
+      ports:
+        - 8083:8083
 
-networks:
-  review-network:
+  schema-registry:
+      image: confluentinc/cp-schema-registry:5.5.3
+      environment:
+        - SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL=zookeeper:2181
+        - SCHEMA_REGISTRY_HOST_NAME=schema-registry
+        - SCHEMA_REGISTRY_LISTENERS=http://schema-registry:8081,http://localhost:8081
+      ports:
+        - 8081:8081
+      depends_on: [ zookeeper, kafka ]
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest  # Kafka UI image by Provectus
+    depends_on:
+      - kafka
+      - debezium  # Ensures Kafka UI starts after Kafka and Debezium
+    ports:
+      - 8080:8080  # Expose UI on port 8080
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local  # Name for the Kafka cluster in the UI
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092  # Kafka bootstrap server for the UI
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181  # Zookeeper connection for the UI
+      KAFKA_CLUSTERS_0_KAFKACONNECT_0_NAME: debezium
+      KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS: http://debezium:8083
+      DYNAMIC_CONFIG_ENABLED: 'true'
+      AUTH_TYPE: LOGIN_FORM  # Authentication type for Kafka UI
+      SPRING_SECURITY_USER_NAME: admin  # username to login to ui
+      SPRING_SECURITY_USER_PASSWORD: Admin@123  # password to login to ui
