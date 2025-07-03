@@ -1,0 +1,23 @@
+spring:
+  spring:
+    data:
+      mongodb:
+        uri: mongodb://yinnohs:123@localhost:27017/review-
+  application:
+  name: reviewOrchestrator
+  cloud:
+    config:
+      enabled: false
+      import-check: false
+server:
+  port: 5154
+
+kafka:
+  bootstrap-servers: localhost:9092
+  consumer:
+    group-id: review-orquestrator-group
+    auto-offset-reset: earliest
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    properties:
+      spring.json.trusted.packages: "com.yinnoh.reviwts.*"

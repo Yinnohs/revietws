@@ -4,7 +4,7 @@ services:
     hostname: postgres
     image: postgres:latest
     ports:
-       - 5432:5432
+       - "5432:5432"
     environment:
       POSTGRES_USER: yinnohs
       POSTGRES_PASSWORD: 123
@@ -17,6 +17,15 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
 
+  mongo-db-review-read:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: yinnohs
+      MONGO_INITDB_ROOT_PASSWORD: 123
+      MONGO_INITDB_DATABASE: review-read
+
   kafka:
       image: confluentinc/cp-enterprise-kafka:5.5.3
       depends_on: [ zookeeper ]
@@ -27,7 +36,7 @@ services:
         KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
         KAFKA_JMX_PORT: 9991
       ports:
-        - 9092:9092
+        - "9092:9092"
 
   debezium:
       image: debezium/connect:1.4
@@ -42,7 +51,7 @@ services:
         CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       depends_on: [ kafka ]
       ports:
-        - 8083:8083
+        - "8083:8083"
 
   schema-registry:
       image: confluentinc/cp-schema-registry:5.5.3
@@ -60,7 +69,7 @@ services:
       - kafka
       - debezium  # Ensures Kafka UI starts after Kafka and Debezium
     ports:
-      - 8080:8080  # Expose UI on port 8080
+      - "8080:8080"  # Expose UI on port 8080
     environment:
       KAFKA_CLUSTERS_0_NAME: local  # Name for the Kafka cluster in the UI
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092  # Kafka bootstrap server for the UI
