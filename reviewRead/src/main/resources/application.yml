@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://yinnohs:123@localhost:27017/review-read?authSource=admin&authMechanism=SCRAM-SHA-1
+  application:
+    name: reviewRead
+  cloud:
+    config:
+      enabled: false
+      import-check: false
+
+server:
+  port: 8082
