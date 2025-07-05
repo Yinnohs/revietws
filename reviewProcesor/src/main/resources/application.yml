@@ -1,23 +1,30 @@
 spring:
-  spring:
-    data:
-      mongodb:
-        uri: mongodb://yinnohs:123@localhost:27017/review-
+  # Data source configuration for MongoDB
+  data:
+    mongodb:
+      uri: ${MONGO_URI}
+
+# Application name and cloud configuration
   application:
-  name: reviewOrchestrator
+    name: reviewProcessor
   cloud:
     config:
       enabled: false
       import-check: false
+
+# Kafka configuration for consuming messages
+  kafka:
+    bootstrap-servers: localhost:29092
+    properties:
+      schema.registry.url: http://localhost:8081
+    consumer:
+      group-id: review-processor-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      properties:
+        # Set specific.avro.reader to false or remove it (default is false)
+        specific.avro.reader: false
+# Server configuration
 server:
   port: 5154
-
-kafka:
-  bootstrap-servers: localhost:9092
-  consumer:
-    group-id: review-orquestrator-group
-    auto-offset-reset: earliest
-    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-    properties:
-      spring.json.trusted.packages: "com.yinnoh.reviwts.*"

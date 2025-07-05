@@ -22,11 +22,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/reviewOrquestrator" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/reviewProcesor" />
         <option name="gradleJvm" value="corretto-17" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/reviewOrquestrator" />
+            <option value="$PROJECT_DIR$/reviewProcesor" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,4 +1,8 @@
 package com.yinnohs.reviwts.reviewProcesor.infrastructure;
 
-public class ReviewRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ReviewRepository extends MongoRepository<ReviewModel, String> {
 }
