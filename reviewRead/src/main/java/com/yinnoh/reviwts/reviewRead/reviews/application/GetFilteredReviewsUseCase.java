@@ -4,6 +4,7 @@ import com.yinnoh.reviwts.reviewRead.reviews.application.dto.ReviewFilterRequest
 import com.yinnoh.reviwts.reviewRead.reviews.application.dto.ReviewResponse;
 import com.yinnoh.reviwts.reviewRead.reviews.domain.entity.Review;
 import com.yinnoh.reviwts.reviewRead.reviews.domain.ports.ReviewService;
+import com.yinnoh.reviwts.reviewRead.reviews.infrastructure.mapper.ReviewMapper;
 import lombok.RequiredArgsConstructor;
 import java.util.List;
 import java.util.stream.Stream;
@@ -11,6 +12,7 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class GetFilteredReviewsUseCase {
     private final ReviewService reviewService;
+    private final ReviewMapper reviewMapper;
 
     public List<ReviewResponse> execute(ReviewFilterRequest filter) {
         Stream<Review> reviewStream = reviewService.getAllReviews().stream();
@@ -26,18 +28,7 @@ public class GetFilteredReviewsUseCase {
         }
 
         return reviewStream
-            .map(review -> new ReviewResponse(
-                review.getId(),
-                review.getReviewedAccountId(),
-                review.getReviewerAccountId(),
-                review.getScore(),
-                review.getTitle(),
-                review.getDescription(),
-                review.getCreatedAt(),
-                review.getUpdatedAt(),
-                review.getDeletedAt()
-            ))
+            .map(reviewMapper::toResponse)
             .toList();
     }
 }
-

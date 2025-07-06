@@ -10,4 +10,4 @@ spring:
       import-check: false
 
 server:
-  port: 8082
+  port: 5152

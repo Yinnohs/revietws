@@ -1,0 +1,33 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "ReviewReadingProto";
+option java_package = "com.yinnoh.reviwts.reviewRead.reviews.infrastructure.grpc";
+
+service ReviewGrpcService {
+  rpc GetReview (GetReviewRequest) returns (GetReviewResponse);
+  rpc ListReviews (ListReviewsRequest) returns (ListReviewsResponse);
+}
+
+message GetReviewRequest {
+  string review_id = 1;
+}
+
+message GetReviewResponse {
+  string id = 1;
+  string reviewedAccountId = 2;
+  string reviewerAccountId = 3;
+  double score = 4;
+  string title = 5;
+  string description = 6;
+  google.protobuf.Timestamp createdAt = 7;
+  google.protobuf.Timestamp updatedAt = 8;
+  google.protobuf.Timestamp deletedAt = 9;
+}
+
+message ListReviewsResponse {
+  repeated GetReviewResponse reviews = 1;
+}
+
+message ListReviewsRequest {}
