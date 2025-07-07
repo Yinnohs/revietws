@@ -28,6 +28,8 @@ repositories {
 ext {
 	set('springCloudVersion', "2025.0.0")
 	set('springGrpcVersion', "0.8.0")
+	grpcVersion = '1.62.2'
+	protobufJavaVersion = '4.30.2'
 }
 
 dependencies {
@@ -36,6 +38,14 @@ dependencies {
 	implementation("io.hypersistence:hypersistence-utils-hibernate-63:3.10.1")
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'io.grpc:grpc-services'
+	// gRPC Dependencies
+	implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
+	implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+	implementation "io.grpc:grpc-stub:${grpcVersion}"
+	implementation "io.grpc:grpc-census:${grpcVersion}"
+// Protobuf Java
+	implementation "com.google.protobuf:protobuf-java:${protobufJavaVersion}"
+// Protobuf Dependencies end
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	implementation 'org.springframework.grpc:spring-grpc-server-web-spring-boot-starter'

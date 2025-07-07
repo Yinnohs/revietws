@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.yinnoh.reviwts'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
 	toolchain {
@@ -50,6 +50,7 @@ dependencies {
 	implementation "io.grpc:grpc-census:${grpcVersion}"
 // Protobuf Java
 	implementation "com.google.protobuf:protobuf-java:${protobufJavaVersion}"
+// Protobuf Dependencies end
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
