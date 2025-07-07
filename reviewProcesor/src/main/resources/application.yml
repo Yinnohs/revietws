@@ -2,7 +2,7 @@ spring:
   # Data source configuration for MongoDB
   data:
     mongodb:
-      uri: ${MONGO_URI}
+      uri: mongodb://yinnohs:123@localhost:27017/review-read?authSource=admin&authMechanism=SCRAM-SHA-1
 
 # Application name and cloud configuration
   application:

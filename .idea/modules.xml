@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/reviewProcesor.main.iml" filepath="$PROJECT_DIR$/.idea/modules/reviewProcesor.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reviewRead.iml" filepath="$PROJECT_DIR$/.idea/modules/reviewRead.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/reviewRead.main.iml" filepath="$PROJECT_DIR$/.idea/modules/reviewRead.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/reviewWrite.main.iml" filepath="$PROJECT_DIR$/.idea/modules/reviewWrite.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/reviews.iml" filepath="$PROJECT_DIR$/.idea/reviews.iml" />

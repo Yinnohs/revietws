@@ -28,7 +28,7 @@ ext {
 	set('springCloudVersion', "2025.0.0")
 	set('springGrpcVersion', "0.8.0")
 	grpcVersion = '1.62.2'
-	protobufJavaVersion = '4.28.2'
+	protobufJavaVersion = '4.30.2'
 }
 
 dependencies {
