@@ -27,6 +27,6 @@ public class GrpcReviewWriteService extends ReviewWriteGrpcServiceGrpc.ReviewWri
         responseObserver.onNext(CreateReviewResponse.newBuilder()
                         .setMessage("Review created successfully")
                 .build());
-
+        responseObserver.onCompleted();
     }
 }

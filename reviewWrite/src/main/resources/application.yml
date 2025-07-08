@@ -25,3 +25,12 @@ server:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+
+grpc:
+  server:
+    port: 5153
+    max-inbound-message-size: 10MB
+    max-inbound-stream-message-size: 10MB
+    max-inbound-headers-per-stream: 1000
+    max-concurrent-streams: 1000
+    enable-reflection: true
