@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @GrpcService
 @AllArgsConstructor
-public class ReviewGRPCConcreteService extends ReviewGrpcServiceGrpc.ReviewGrpcServiceImplBase {
+public class ReviewGRPCConcreteService extends ReviewReadGrpcServiceGrpc.ReviewReadGrpcServiceImplBase {
 
     private final GetAllReviewsUseCase getAllReviewsUseCase;
     private final GetReviewByIdUseCase getReviewByIdUseCase;

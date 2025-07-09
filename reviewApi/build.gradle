@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.yinnohs.reviwts'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
 	toolchain {
@@ -27,13 +27,30 @@ repositories {
 ext {
 	set('springCloudVersion', "2025.0.0")
 	set('springGrpcVersion', "0.8.0")
+	grpcVersion = '1.70.0'
+	protobufJavaVersion = '4.29.1'
+	springGrpcVersion = '0.5.0'
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'io.grpc:grpc-services'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-	implementation 'org.springframework.grpc:spring-grpc-server-web-spring-boot-starter'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+	// 1. Provides core gRPC services like health checks and reflection
+	implementation 'io.grpc:grpc-services'
+	// 2. Spring Boot integration for gRPC clients
+	implementation 'net.devh:grpc-client-spring-boot-starter:3.1.0.RELEASE'
+	// gRPC core transport over Netty (shaded to avoid dependency conflicts)
+	implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
+	// 6. Support for gRPC protocol buffer message serialization
+	implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+	// 7. gRPC client and server stub generation and communication
+	implementation "io.grpc:grpc-stub:${grpcVersion}"
+	// 8. gRPC monitoring and metrics via Census library
+	implementation "io.grpc:grpc-census:${grpcVersion}"
+	// 9. Protobuf Java runtime for working with generated `.proto` classes
+	implementation "com.google.protobuf:protobuf-java:${protobufJavaVersion}"
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

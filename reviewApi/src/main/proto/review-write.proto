@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import 'google/protobuf/timestamp.proto';
+
+option java_multiple_files = true;
+option java_outer_classname = "ReviewWriteProto";
+option java_package = "com.yinnohs.reviwts.reviewWrite.reviews.infrastructure.grpc";
+
+service ReviewWriteGrpcService {
+  rpc CreateReview (CreateReviewRequest) returns (CreateReviewResponse);
+}
+
+message CreateReviewRequest {
+  string reviewedAccountId = 1;
+  string reviewerAccountId = 2;
+  double score = 3;
+  string title = 4;
+  string description = 5;
+}
+
+message CreateReviewResponse {
+  string message = 1;
+}

@@ -1,0 +1,9 @@
+spring:
+  application:
+  name: reviewApi
+  cloud:
+    config:
+      enabled: false
+      import-check: false
+server:
+    port: 5049

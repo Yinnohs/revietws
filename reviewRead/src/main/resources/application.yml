@@ -14,7 +14,8 @@ server:
 
 grpc:
   server:
-    port: 5152
+    port: 5252
+    address: 0.0.0.0
     max-inbound-message-size: 10MB
     max-inbound-stream-message-size: 10MB
     max-inbound-headers-per-stream: 1000
