@@ -1,10 +1,10 @@
 package com.yinnohs.reviewts.auth.auth.application.usecases;
 
 
-import com.yinnohs.security.jwt.auth.application.dtos.LoginRequest;
-import com.yinnohs.security.jwt.auth.application.dtos.LoginResponse;
-import com.yinnohs.security.jwt.auth.domain.entities.Account;
-import com.yinnohs.security.jwt.auth.domain.ports.out.AccountService;
+import com.yinnohs.reviewts.auth.auth.application.dtos.LoginRequest;
+import com.yinnohs.reviewts.auth.auth.application.dtos.LoginResponse;
+import com.yinnohs.reviewts.auth.auth.domain.entities.Account;
+import com.yinnohs.reviewts.auth.auth.domain.ports.out.AccountService;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;

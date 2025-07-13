@@ -1,6 +1,6 @@
 package com.yinnohs.reviewts.auth.auth.infrastructure.filters;
 
-import com.yinnohs.security.jwt.auth.infrastructure.services.JWTServiceImpl;
+import com.yinnohs.reviewts.auth.auth.infrastructure.services.JWTServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,6 +1,6 @@
 package com.yinnohs.reviewts.auth.user.domain.ports.out;
 
-import com.yinnohs.security.jwt.user.domain.entities.User;
+import com.yinnohs.reviewts.auth.user.domain.entities.User;
 
 public interface UserService {
      /*List<User> findAll();

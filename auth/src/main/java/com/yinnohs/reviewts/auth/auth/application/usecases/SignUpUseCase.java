@@ -1,15 +1,15 @@
 package com.yinnohs.reviewts.auth.auth.application.usecases;
 
-import com.yinnohs.security.jwt.auth.application.dtos.SignUpRequest;
-import com.yinnohs.security.jwt.auth.domain.entities.Account;
-import com.yinnohs.security.jwt.auth.domain.entities.Role;
-import com.yinnohs.security.jwt.auth.domain.exceptions.InvalidEmailException;
-import com.yinnohs.security.jwt.auth.domain.exceptions.InvalidPasswordException;
-import com.yinnohs.security.jwt.auth.domain.ports.in.UserPort;
-import com.yinnohs.security.jwt.auth.domain.ports.out.AccountService;
-import com.yinnohs.security.jwt.auth.domain.ports.out.PasswordService;
-import com.yinnohs.security.jwt.auth.domain.vos.Email;
-import com.yinnohs.security.jwt.auth.domain.vos.Password;
+import com.yinnohs.reviewts.auth.auth.application.dtos.SignUpRequest;
+import com.yinnohs.reviewts.auth.auth.domain.entities.Account;
+import com.yinnohs.reviewts.auth.auth.domain.entities.Role;
+import com.yinnohs.reviewts.auth.auth.domain.exceptions.InvalidEmailException;
+import com.yinnohs.reviewts.auth.auth.domain.exceptions.InvalidPasswordException;
+import com.yinnohs.reviewts.auth.auth.domain.ports.in.UserPort;
+import com.yinnohs.reviewts.auth.auth.domain.ports.out.AccountService;
+import com.yinnohs.reviewts.auth.auth.domain.ports.out.PasswordService;
+import com.yinnohs.reviewts.auth.auth.domain.vos.Email;
+import com.yinnohs.reviewts.auth.auth.domain.vos.Password;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

@@ -1,6 +1,6 @@
 package com.yinnohs.reviewts.auth.user.infrastructure.repositories;
 
-import com.yinnohs.security.jwt.user.infrastructure.model.UserModel;
+import com.yinnohs.reviewts.auth.user.infrastructure.model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

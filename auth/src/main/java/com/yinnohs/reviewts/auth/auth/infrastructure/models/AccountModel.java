@@ -1,6 +1,6 @@
 package com.yinnohs.reviewts.auth.auth.infrastructure.models;
 
-import com.yinnohs.security.jwt.auth.domain.entities.Role;
+import com.yinnohs.reviewts.auth.auth.domain.entities.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;

@@ -1,8 +1,8 @@
 package com.yinnohs.reviewts.auth.user.infrastructure.configs;
 
-import com.yinnohs.security.jwt.user.application.usecases.CreateUserUseCase;
-import com.yinnohs.security.jwt.user.application.usecases.ExistByEmail;
-import com.yinnohs.security.jwt.user.domain.ports.out.UserService;
+import com.yinnohs.reviewts.auth.user.application.usecases.CreateUserUseCase;
+import com.yinnohs.reviewts.auth.user.application.usecases.ExistByEmail;
+import com.yinnohs.reviewts.auth.user.domain.ports.out.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

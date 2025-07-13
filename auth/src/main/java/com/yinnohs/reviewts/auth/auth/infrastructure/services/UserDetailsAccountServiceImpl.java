@@ -1,7 +1,7 @@
 package com.yinnohs.reviewts.auth.auth.infrastructure.services;
 
-import com.yinnohs.security.jwt.auth.domain.exceptions.AccountNotFoundException;
-import com.yinnohs.security.jwt.auth.infrastructure.repositories.AccountsSqlRepository;
+import com.yinnohs.reviewts.auth.auth.domain.exceptions.AccountNotFoundException;
+import com.yinnohs.reviewts.auth.auth.infrastructure.repositories.AccountsSqlRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,6 @@
 package com.yinnohs.reviewts.auth.user.domain.entities;
 
-import com.yinnohs.security.jwt.user.domain.vo.Email;
+import com.yinnohs.reviewts.auth.user.domain.vo.Email;
 import lombok.*;
 
 import java.time.LocalDateTime;

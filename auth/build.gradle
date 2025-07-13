@@ -60,6 +60,9 @@ dependencies {
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
 
+	// jakarta validation
+	implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
+
 	// Argon2 password hashing dependency
 	implementation 'de.mkammerer:argon2-jvm:2.11'
 }

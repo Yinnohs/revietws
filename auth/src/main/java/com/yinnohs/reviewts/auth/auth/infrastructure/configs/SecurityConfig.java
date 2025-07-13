@@ -1,8 +1,8 @@
 package com.yinnohs.reviewts.auth.auth.infrastructure.configs;
 
-import com.yinnohs.security.jwt.auth.domain.entities.Role;
-import com.yinnohs.security.jwt.auth.infrastructure.filters.JWTFilter;
-import com.yinnohs.security.jwt.auth.infrastructure.services.UserDetailsAccountServiceImpl;
+import com.yinnohs.reviewts.auth.auth.domain.entities.Role;
+import com.yinnohs.reviewts.auth.auth.infrastructure.filters.JWTFilter;
+import com.yinnohs.reviewts.auth.auth.infrastructure.services.UserDetailsAccountServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static com.yinnohs.security.jwt.auth.domain.entities.Permissions.*;
+import static com.yinnohs.reviewts.auth.auth.domain.entities.Permissions.*;
 
 @Configuration
 @RequiredArgsConstructor

@@ -1,9 +1,9 @@
 package com.yinnohs.reviewts.auth.user.infrastructure.services;
 
-import com.yinnohs.security.jwt.user.domain.entities.User;
-import com.yinnohs.security.jwt.user.domain.ports.out.UserService;
-import com.yinnohs.security.jwt.user.infrastructure.mappers.UserMapper;
-import com.yinnohs.security.jwt.user.infrastructure.repositories.UserModelSqlRepository;
+import com.yinnohs.reviewts.auth.user.domain.entities.User;
+import com.yinnohs.reviewts.auth.user.domain.ports.out.UserService;
+import com.yinnohs.reviewts.auth.user.infrastructure.mappers.UserMapper;
+import com.yinnohs.reviewts.auth.user.infrastructure.repositories.UserModelSqlRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,10 +1,10 @@
 package com.yinnohs.reviewts.auth.auth.infrastructure.adapter;
 
-import com.yinnohs.security.jwt.auth.domain.entities.User;
-import com.yinnohs.security.jwt.auth.domain.ports.in.UserPort;
-import com.yinnohs.security.jwt.user.application.dtos.CreateUserRequest;
-import com.yinnohs.security.jwt.user.application.usecases.CreateUserUseCase;
-import com.yinnohs.security.jwt.user.application.usecases.ExistByEmail;
+import com.yinnohs.reviewts.auth.auth.domain.entities.User;
+import com.yinnohs.reviewts.auth.auth.domain.ports.in.UserPort;
+import com.yinnohs.reviewts.auth.user.application.dtos.CreateUserRequest;
+import com.yinnohs.reviewts.auth.user.application.usecases.CreateUserUseCase;
+import com.yinnohs.reviewts.auth.user.application.usecases.ExistByEmail;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

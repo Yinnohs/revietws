@@ -1,6 +1,6 @@
 package com.yinnohs.reviewts.auth.auth.domain.vos;
 
-import com.yinnohs.security.jwt.auth.domain.exceptions.InvalidEmailException;
+import com.yinnohs.reviewts.auth.auth.domain.exceptions.InvalidEmailException;
 import lombok.Getter;
 
 import java.util.regex.Matcher;

@@ -1,10 +1,10 @@
 package com.yinnohs.reviewts.auth.auth.infrastructure.configs;
 
-import com.yinnohs.security.jwt.auth.application.usecases.LoginUseCase;
-import com.yinnohs.security.jwt.auth.application.usecases.SignUpUseCase;
-import com.yinnohs.security.jwt.auth.domain.ports.in.UserPort;
-import com.yinnohs.security.jwt.auth.domain.ports.out.AccountService;
-import com.yinnohs.security.jwt.auth.domain.ports.out.PasswordService;
+import com.yinnohs.reviewts.auth.auth.application.usecases.LoginUseCase;
+import com.yinnohs.reviewts.auth.auth.application.usecases.SignUpUseCase;
+import com.yinnohs.reviewts.auth.auth.domain.ports.in.UserPort;
+import com.yinnohs.reviewts.auth.auth.domain.ports.out.AccountService;
+import com.yinnohs.reviewts.auth.auth.domain.ports.out.PasswordService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

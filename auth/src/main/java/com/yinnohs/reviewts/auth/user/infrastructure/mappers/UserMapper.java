@@ -1,8 +1,8 @@
 package com.yinnohs.reviewts.auth.user.infrastructure.mappers;
 
-import com.yinnohs.security.jwt.user.domain.entities.User;
-import com.yinnohs.security.jwt.user.domain.vo.Email;
-import com.yinnohs.security.jwt.user.infrastructure.model.UserModel;
+import com.yinnohs.reviewts.auth.user.domain.entities.User;
+import com.yinnohs.reviewts.auth.user.domain.vo.Email;
+import com.yinnohs.reviewts.auth.user.infrastructure.model.UserModel;
 import org.springframework.stereotype.Component;
 
 @Component

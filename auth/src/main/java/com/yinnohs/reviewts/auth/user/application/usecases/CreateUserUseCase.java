@@ -1,9 +1,9 @@
 package com.yinnohs.reviewts.auth.user.application.usecases;
 
-import com.yinnohs.security.jwt.user.application.dtos.CreateUserRequest;
-import com.yinnohs.security.jwt.user.domain.entities.User;
-import com.yinnohs.security.jwt.user.domain.ports.out.UserService;
-import com.yinnohs.security.jwt.user.domain.vo.Email;
+import com.yinnohs.reviewts.auth.user.application.dtos.CreateUserRequest;
+import com.yinnohs.reviewts.auth.user.domain.entities.User;
+import com.yinnohs.reviewts.auth.user.domain.ports.out.UserService;
+import com.yinnohs.reviewts.auth.user.domain.vo.Email;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

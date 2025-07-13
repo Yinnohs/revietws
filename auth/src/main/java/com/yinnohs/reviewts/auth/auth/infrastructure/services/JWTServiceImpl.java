@@ -1,7 +1,7 @@
 package com.yinnohs.reviewts.auth.auth.infrastructure.services;
 
-import com.yinnohs.security.jwt.auth.infrastructure.configs.RsaKeyConfigProperties;
-import com.yinnohs.security.jwt.auth.infrastructure.models.AccountModel;
+import com.yinnohs.reviewts.auth.auth.infrastructure.configs.RsaKeyConfigProperties;
+import com.yinnohs.reviewts.auth.auth.infrastructure.models.AccountModel;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import lombok.RequiredArgsConstructor;

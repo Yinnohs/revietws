@@ -1,6 +1,6 @@
 package com.yinnohs.reviewts.auth.user.application.usecases;
 
-import com.yinnohs.security.jwt.user.domain.ports.out.UserService;
+import com.yinnohs.reviewts.auth.user.domain.ports.out.UserService;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor

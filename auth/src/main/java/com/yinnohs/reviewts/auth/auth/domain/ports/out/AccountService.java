@@ -1,7 +1,7 @@
 package com.yinnohs.reviewts.auth.auth.domain.ports.out;
 
 
-import com.yinnohs.security.jwt.auth.domain.entities.Account;
+import com.yinnohs.reviewts.auth.auth.domain.entities.Account;
 
 import java.util.List;
 

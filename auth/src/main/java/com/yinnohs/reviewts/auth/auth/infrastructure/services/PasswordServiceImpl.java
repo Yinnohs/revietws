@@ -1,6 +1,6 @@
 package com.yinnohs.reviewts.auth.auth.infrastructure.services;
 
-import com.yinnohs.security.jwt.auth.domain.ports.out.PasswordService;
+import com.yinnohs.reviewts.auth.auth.domain.ports.out.PasswordService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
