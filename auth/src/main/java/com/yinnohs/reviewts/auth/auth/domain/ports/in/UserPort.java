@@ -1,6 +1,6 @@
 package com.yinnohs.reviewts.auth.auth.domain.ports.in;
 
-import com.yinnohs.security.jwt.auth.domain.entities.User;
+import com.yinnohs.reviewts.auth.auth.domain.entities.User;
 
 public interface UserPort {
     Boolean existsByEmail(String email);
