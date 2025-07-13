@@ -12,6 +12,19 @@ services:
     command: ["postgres", "-c", "wal_level=logical"]
     volumes:
       - ./db/review/write/postgres:/var/lib/postgresql/data
+  postgres-db-auth-review:
+    container_name: postgres-db-auth-review
+    hostname: postgres
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: yinnohs
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: review-write
+    command: [ "postgres", "-c", "wal_level=logical" ]
+    volumes:
+      - ./db/review/auth/postgres:/var/lib/postgresql/data
   zookeeper:
     image: confluentinc/cp-zookeeper:5.5.3
     environment:

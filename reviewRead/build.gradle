@@ -39,11 +39,10 @@ dependencies {
 	implementation 'io.grpc:grpc-services'
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-	implementation 'org.springframework.grpc:spring-grpc-server-web-spring-boot-starter'
 	implementation 'io.grpc:grpc-services'
-	implementation 'org.springframework.grpc:spring-grpc-spring-boot-starter'
-	testImplementation 'org.springframework.grpc:spring-grpc-test'
+
 // gRPC Dependencies
+	implementation 'org.springframework.grpc:spring-grpc-spring-boot-starter'
 	implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
 	implementation "io.grpc:grpc-protobuf:${grpcVersion}"
 	implementation "io.grpc:grpc-stub:${grpcVersion}"

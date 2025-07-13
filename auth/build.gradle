@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.yinnohs.reviewts'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
 	toolchain {
@@ -25,7 +25,10 @@ repositories {
 }
 
 ext {
+	set('springCloudVersion', "2025.0.0")
 	set('springGrpcVersion', "0.9.0")
+	grpcVersion = '1.62.2'
+	protobufJavaVersion = '4.30.2'
 }
 
 dependencies {
@@ -35,19 +38,36 @@ dependencies {
 	implementation 'io.grpc:grpc-services'
 	implementation 'org.liquibase:liquibase-core'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-	implementation 'org.springframework.grpc:spring-grpc-server-web-spring-boot-starter'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.grpc:spring-grpc-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// gRPC Dependencies
+	implementation 'org.springframework.grpc:spring-grpc-spring-boot-starter'
+	implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
+	implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+	implementation "io.grpc:grpc-stub:${grpcVersion}"
+	implementation "io.grpc:grpc-census:${grpcVersion}"
+// Protobuf Java
+	implementation "com.google.protobuf:protobuf-java:${protobufJavaVersion}"
+// Protobuf Dependencies end
+
+	//jwt dependencies
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+	// Argon2 password hashing dependency
+	implementation 'de.mkammerer:argon2-jvm:2.11'
 }
 
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.grpc:spring-grpc-dependencies:${springGrpcVersion}"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
 }
 
@@ -63,6 +83,7 @@ protobuf {
 	generateProtoTasks {
 		all()*.plugins {
 			grpc {
+				option 'jakarta_omit'
 				option '@generated=omit'
 			}
 		}
