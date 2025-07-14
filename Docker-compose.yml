@@ -21,7 +21,7 @@ services:
     environment:
       POSTGRES_USER: yinnohs
       POSTGRES_PASSWORD: 123
-      POSTGRES_DB: review-write
+      POSTGRES_DB: review-auth
     command: [ "postgres", "-c", "wal_level=logical" ]
     volumes:
       - ./db/review/auth/postgres:/var/lib/postgresql/data
