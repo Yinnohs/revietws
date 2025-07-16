@@ -29,7 +29,7 @@ public class AuthGrpcService extends AuthsGrpcServiceGrpc.AuthsGrpcServiceImplBa
                 request.getPassword()
         );
 
-        Long userId = signUpUseCase.execute(signUpRequest);
+        String userId = signUpUseCase.execute(signUpRequest);
 
         RegisterResponse response = RegisterResponse.newBuilder()
                 .setId(userId)

@@ -61,7 +61,7 @@ databaseChangeLog:
                   type: varchar(1000)
               - column:
                   name: user_id
-                  type: bigint
+                  type: varchar(255)
                   constraints:
                     nullable: false
               - column:
@@ -81,9 +81,3 @@ databaseChangeLog:
             constraintName: fk_user_account
             referencedTableName: users
             referencedColumnNames: id
-        - createSequence:
-            sequenceName: users_seq
-            incrementBy: 50
-        - createSequence:
-            sequenceName: accounts_seq
-            incrementBy: 50
