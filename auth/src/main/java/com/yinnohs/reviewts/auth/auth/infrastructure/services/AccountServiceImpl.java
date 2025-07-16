@@ -24,7 +24,7 @@ public class AccountServiceImpl implements AccountService {
     private final JWTServiceImpl jwtService;
 
     @Override
-    public Long save(Account account) {
+    public String save(Account account) {
         var model = mapper.domainToModel(account);
         var savedModel = repository.save(model);
         return savedModel.getId();

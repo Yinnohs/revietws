@@ -12,11 +12,11 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class Account {
-    private Long id;
+    private String id;
     private Email email;
     private Password password;
     private String refreshToken;
-    private Long userId;
+    private String userId;
     private Role role;
     private LocalDateTime createdAt;
     private LocalDateTime lastUpdate;

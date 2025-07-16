@@ -25,7 +25,7 @@ public class UserModularMonolithAdapter implements UserPort {
     }
 
     @Override
-    public Long createUser(String firstName, String lastName, String email) {
+    public String createUser(String firstName, String lastName, String email) {
         var request = new CreateUserRequest(firstName,lastName,email);
         return userUseCase.execute(request);
     }

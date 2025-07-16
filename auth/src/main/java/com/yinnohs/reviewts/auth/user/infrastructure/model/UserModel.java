@@ -17,8 +17,7 @@ import java.time.LocalDateTime;
 @Entity(name = "users")
 public class UserModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private String id;
     @Column(nullable = false)
     private String firstName;
     @Column(nullable = false)

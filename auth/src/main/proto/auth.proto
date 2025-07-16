@@ -6,7 +6,7 @@ option java_package = "com.yinnohs.reviwts.auth.infrastructure.grpc";
 
 service AuthsGrpcService{
   rpc login(LoginRequest) returns (AuthResponse);
-  rpc register(RegisterRequest) returns (AuthResponse);
+  rpc register(RegisterRequest) returns (RegisterResponse);
 }
 
 message LoginRequest {
@@ -19,6 +19,10 @@ message RegisterRequest{
   string password = 2;
   string firstName = 3;
   string lastName = 4;
+}
+
+message RegisterResponse {
+  string id = 1;
 }
 
 message AuthResponse {

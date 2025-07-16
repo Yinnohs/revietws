@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Long save(User user) {
+    public String save(User user) {
         var model = mapper.domainToModel(user);
         var savedModel = repository.save(model);
         return  savedModel.getId();

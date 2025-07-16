@@ -22,8 +22,7 @@ import java.util.List;
 @Entity(name = "accounts")
 public class AccountModel implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private String id;
     @Column(unique = true, nullable = false)
     private String email;
     @Column(nullable = false)
