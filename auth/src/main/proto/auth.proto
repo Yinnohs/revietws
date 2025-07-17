@@ -5,16 +5,16 @@ option java_outer_classname = "AuthProto";
 option java_package = "com.yinnohs.reviwts.auth.infrastructure.grpc";
 
 service AuthsGrpcService{
-  rpc login(LoginRequest) returns (AuthResponse);
-  rpc register(RegisterRequest) returns (RegisterResponse);
+  rpc login(GrpcLoginRequest) returns (AuthResponse);
+  rpc register(GrpcSignUpRequest) returns (RegisterResponse);
 }
 
-message LoginRequest {
+message GrpcLoginRequest {
   string email = 1;
   string password = 2;
 }
 
-message RegisterRequest{
+message GrpcSignUpRequest{
   string email = 1;
   string password = 2;
   string firstName = 3;
@@ -26,7 +26,6 @@ message RegisterResponse {
 }
 
 message AuthResponse {
-  string id = 1;
-  string email = 2;
-  string token = 3;
+  string authToken = 1;
+  string refreshToken = 2;
 }

@@ -8,16 +8,16 @@ spring:
     config:
       enabled: false
       import-check: false
+  grpc:
+    server:
+      address: 0.0.0.0:5253
+      max-inbound-message-size: 10MB
+      max-inbound-stream-message-size: 10MB
+      max-inbound-headers-per-stream: 1000
+      max-concurrent-streams: 1000
+      enable-reflection: true
+
 
 server:
   port: 5152
 
-grpc:
-  server:
-    port: 5252
-    address: 0.0.0.0
-    max-inbound-message-size: 10MB
-    max-inbound-stream-message-size: 10MB
-    max-inbound-headers-per-stream: 1000
-    max-concurrent-streams: 1000
-    enable-reflection: true

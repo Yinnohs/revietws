@@ -21,6 +21,14 @@ spring:
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
 
+  grpc:
+    server:
+      address: 0.0.0.0:5251
+      max-inbound-message-size: 10MB
+      max-inbound-stream-message-size: 10MB
+      max-inbound-headers-per-stream: 1000
+      max-concurrent-streams: 1000
+
 server:
   port: 5155
   jpa:
@@ -56,4 +64,6 @@ argon2:
   iterations: 5
   parallelism: 1
   saltLength: 2
+
+
 
