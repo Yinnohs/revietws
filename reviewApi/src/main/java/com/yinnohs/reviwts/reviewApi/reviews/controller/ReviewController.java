@@ -1,9 +1,9 @@
 package com.yinnohs.reviwts.reviewApi.reviews.controller;
 
-import com.yinnohs.reviwts.reviewApi.reviews.dto.CreateReviewRequestDTO;
-import com.yinnohs.reviwts.reviewApi.reviews.dto.ReviewResponse;
-import com.yinnohs.reviwts.reviewApi.reviews.service.ReviewReadCallerService;
-import com.yinnohs.reviwts.reviewApi.reviews.service.ReviewWriteCallerService;
+import com.yinnohs.reviwts.reviewApi.reviews.dto.review.CreateReviewRequestDTO;
+import com.yinnohs.reviwts.reviewApi.reviews.dto.review.ReviewResponse;
+import com.yinnohs.reviwts.reviewApi.reviews.service.review.ReviewReadCallerService;
+import com.yinnohs.reviwts.reviewApi.reviews.service.review.ReviewWriteCallerService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

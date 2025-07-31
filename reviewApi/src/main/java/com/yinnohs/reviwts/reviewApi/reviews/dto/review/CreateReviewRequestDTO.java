@@ -1,4 +1,4 @@
-package com.yinnohs.reviwts.reviewApi.reviews.dto;
+package com.yinnohs.reviwts.reviewApi.reviews.dto.review;
 
 public record CreateReviewRequestDTO(
         String reviewedAccountId,

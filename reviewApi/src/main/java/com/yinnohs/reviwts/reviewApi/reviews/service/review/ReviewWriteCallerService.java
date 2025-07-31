@@ -1,6 +1,6 @@
-package com.yinnohs.reviwts.reviewApi.reviews.service;
+package com.yinnohs.reviwts.reviewApi.reviews.service.review;
 
-import com.yinnohs.reviwts.reviewApi.reviews.dto.CreateReviewRequestDTO;
+import com.yinnohs.reviwts.reviewApi.reviews.dto.review.CreateReviewRequestDTO;
 import com.yinnohs.reviwts.reviewWrite.reviews.infrastructure.grpc.CreateReviewRequest;
 import com.yinnohs.reviwts.reviewWrite.reviews.infrastructure.grpc.ReviewWriteGrpcServiceGrpc;
 import io.grpc.ManagedChannel;
@@ -20,7 +20,7 @@ public class ReviewWriteCallerService {
                 .setDescription(request.description())
                 .build();
 
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 5153)
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 5251)
                 .usePlaintext()
                 .build();
 

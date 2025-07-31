@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_outer_classname = "AuthProto";
+option java_package = "com.yinnohs.reviwts.auth.infrastructure.grpc";
+
+service AuthsGrpcService{
+  rpc login(GrpcLoginRequest) returns (AuthResponse);
+  rpc register(GrpcSignUpRequest) returns (RegisterResponse);
+}
+
+message GrpcLoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message GrpcSignUpRequest{
+  string email = 1;
+  string password = 2;
+  string firstName = 3;
+  string lastName = 4;
+}
+
+message RegisterResponse {
+  string id = 1;
+}
+
+message AuthResponse {
+  string authToken = 1;
+  string refreshToken = 2;
+}

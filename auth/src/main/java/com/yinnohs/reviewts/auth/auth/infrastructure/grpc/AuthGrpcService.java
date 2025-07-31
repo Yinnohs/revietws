@@ -9,8 +9,10 @@ import com.yinnohs.reviwts.auth.infrastructure.grpc.*;
 import io.grpc.stub.StreamObserver;
 import lombok.AllArgsConstructor;
 import org.springframework.grpc.server.service.GrpcService;
+import org.springframework.stereotype.Service;
 
 @GrpcService
+@Service
 @AllArgsConstructor
 public class AuthGrpcService extends AuthsGrpcServiceGrpc.AuthsGrpcServiceImplBase {
 
