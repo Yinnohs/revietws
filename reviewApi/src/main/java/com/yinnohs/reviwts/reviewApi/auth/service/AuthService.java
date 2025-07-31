@@ -2,6 +2,8 @@ package com.yinnohs.reviwts.reviewApi.auth.service;
 
 import com.yinnohs.reviwts.auth.infrastructure.grpc.AuthsGrpcServiceGrpc;
 import com.yinnohs.reviwts.auth.infrastructure.grpc.GrpcSignUpRequest;
+import com.yinnohs.reviwts.reviewApi.auth.dto.LoginRequest;
+import com.yinnohs.reviwts.reviewApi.auth.dto.LoginResponse;
 import com.yinnohs.reviwts.reviewApi.auth.dto.SignUpRequest;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -26,5 +28,23 @@ public class AuthService {
         var response = authServiceCaller.register(rpcSignUpRequest);
 
         return response.getId();
+    }
+
+    public LoginResponse login(LoginRequest request) {
+        var rpcLoginRequest = com.yinnohs.reviwts.auth.infrastructure.grpc.GrpcLoginRequest.newBuilder()
+                .setEmail(request.email())
+                .setPassword(request.password())
+                .build();
+
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 5251)
+                .usePlaintext()
+                .build();
+
+        var response = AuthsGrpcServiceGrpc.newBlockingStub(channel).login(rpcLoginRequest);
+
+        return new LoginResponse(
+                response.getAuthToken(),
+                response.getRefreshToken()
+        );
     }
 }

@@ -25,7 +25,7 @@ public class AuthController {
     }
 
     @PostMapping
-    public ResponseEntity<?> Login(LoginRequest request) {
-        return ResponseEntity.ok(" not implemented yet");
+    public ResponseEntity<?> Login(@RequestBody LoginRequest request) {
+        return ResponseEntity.ok(authService.login(request));
     }
 }
