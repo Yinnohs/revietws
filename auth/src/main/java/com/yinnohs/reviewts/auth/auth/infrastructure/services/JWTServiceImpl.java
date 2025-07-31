@@ -1,6 +1,9 @@
 package com.yinnohs.reviewts.auth.auth.infrastructure.services;
 
+import com.yinnohs.reviewts.auth.auth.domain.entities.Account;
+import com.yinnohs.reviewts.auth.auth.domain.ports.in.TokenPort;
 import com.yinnohs.reviewts.auth.auth.infrastructure.configs.RsaKeyConfigProperties;
+import com.yinnohs.reviewts.auth.auth.infrastructure.mappers.AccountMapper;
 import com.yinnohs.reviewts.auth.auth.infrastructure.models.AccountModel;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -18,7 +21,7 @@ import java.util.function.Function;
 
 @Service
 @RequiredArgsConstructor
-public class JWTServiceImpl {
+public class JWTServiceImpl implements TokenPort {
 
     @Value("${jwt.auth.expiration}")
     private long expirationTimeInMillisAuthToken;
@@ -26,6 +29,7 @@ public class JWTServiceImpl {
     private long expirationTimeInMillisRefreshToken;
 
     private final RsaKeyConfigProperties keys;
+    private final AccountMapper mapper;
 
     public String generateAuthToken(AccountModel account){
         Map<String, Object> claims = new HashMap<>();
@@ -67,6 +71,12 @@ public class JWTServiceImpl {
 
     public String extractAccountEmail(String token) {
         return extractClaim(token, Claims::getSubject);
+    }
+
+    @Override
+    public boolean validateToken(String token) {
+        final String email = extractAccountEmail(token);
+        return email != null && !email.isEmpty() && !isTokenExpired(token);
     }
 
     public boolean validateToken(String token, UserDetails userDetails) {

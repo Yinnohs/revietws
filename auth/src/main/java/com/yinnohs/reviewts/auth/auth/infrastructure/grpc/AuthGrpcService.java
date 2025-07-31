@@ -3,6 +3,7 @@ package com.yinnohs.reviewts.auth.auth.infrastructure.grpc;
 import com.yinnohs.reviewts.auth.auth.application.dtos.LoginRequest;
 import com.yinnohs.reviewts.auth.auth.application.dtos.LoginResponse;
 import com.yinnohs.reviewts.auth.auth.application.dtos.SignUpRequest;
+import com.yinnohs.reviewts.auth.auth.application.usecases.IsValidTokenUseCase;
 import com.yinnohs.reviewts.auth.auth.application.usecases.LoginUseCase;
 import com.yinnohs.reviewts.auth.auth.application.usecases.SignUpUseCase;
 import com.yinnohs.reviwts.auth.infrastructure.grpc.*;
@@ -18,6 +19,7 @@ public class AuthGrpcService extends AuthsGrpcServiceGrpc.AuthsGrpcServiceImplBa
 
     private final SignUpUseCase signUpUseCase;
     private final LoginUseCase loginUseCase;
+    private final IsValidTokenUseCase isValidTokenUseCase;
 
     @Override
     public void login(GrpcLoginRequest request, StreamObserver<AuthResponse> responseObserver) {
@@ -51,6 +53,18 @@ public class AuthGrpcService extends AuthsGrpcServiceGrpc.AuthsGrpcServiceImplBa
                 .build();
 
         responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void isValidToken(IsValidTokenRequest request, StreamObserver<IsValidTokenResponse> responseObserver) {
+
+        String token = request.getAuthToken();
+
+
+
+
+        // complete the stream response
         responseObserver.onCompleted();
     }
 }
