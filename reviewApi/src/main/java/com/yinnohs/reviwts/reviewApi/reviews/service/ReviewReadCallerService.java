@@ -1,7 +1,7 @@
-package com.yinnohs.reviwts.reviewApi.reviews.service.review;
+package com.yinnohs.reviwts.reviewApi.reviews.service;
 
 
-import com.yinnohs.reviwts.reviewApi.reviews.dto.review.ReviewResponse;
+import com.yinnohs.reviwts.reviewApi.reviews.dto.ReviewResponse;
 import com.yinnohs.reviwts.reviewApi.reviews.mapper.ReviewMapper;
 import com.yinnohs.reviwts.reviewRead.reviews.infrastructure.grpc.ListReviewsRequest;
 import com.yinnohs.reviwts.reviewRead.reviews.infrastructure.grpc.ListReviewsResponse;

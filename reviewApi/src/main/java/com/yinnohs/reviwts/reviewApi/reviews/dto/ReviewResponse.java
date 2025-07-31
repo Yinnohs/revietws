@@ -1,4 +1,4 @@
-package com.yinnohs.reviwts.reviewApi.reviews.dto.review;
+package com.yinnohs.reviwts.reviewApi.reviews.dto;
 
 import java.time.LocalDateTime;
 

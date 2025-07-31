@@ -1,8 +1,8 @@
-package com.yinnohs.reviwts.reviewApi.reviews.service.auth;
+package com.yinnohs.reviwts.reviewApi.auth.service;
 
 import com.yinnohs.reviwts.auth.infrastructure.grpc.AuthsGrpcServiceGrpc;
 import com.yinnohs.reviwts.auth.infrastructure.grpc.GrpcSignUpRequest;
-import com.yinnohs.reviwts.reviewApi.reviews.dto.auth.SignUpRequest;
+import com.yinnohs.reviwts.reviewApi.auth.dto.SignUpRequest;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.springframework.stereotype.Service;

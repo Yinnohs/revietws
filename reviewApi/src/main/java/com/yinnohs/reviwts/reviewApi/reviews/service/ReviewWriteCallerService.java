@@ -1,6 +1,6 @@
-package com.yinnohs.reviwts.reviewApi.reviews.service.review;
+package com.yinnohs.reviwts.reviewApi.reviews.service;
 
-import com.yinnohs.reviwts.reviewApi.reviews.dto.review.CreateReviewRequestDTO;
+import com.yinnohs.reviwts.reviewApi.reviews.dto.CreateReviewRequestDTO;
 import com.yinnohs.reviwts.reviewWrite.reviews.infrastructure.grpc.CreateReviewRequest;
 import com.yinnohs.reviwts.reviewWrite.reviews.infrastructure.grpc.ReviewWriteGrpcServiceGrpc;
 import io.grpc.ManagedChannel;

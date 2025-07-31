@@ -1,4 +1,4 @@
-package com.yinnohs.reviwts.reviewApi.reviews.dto.auth;
+package com.yinnohs.reviwts.reviewApi.auth.dto;
 
 public record SignUpRequest(
         String firstName,

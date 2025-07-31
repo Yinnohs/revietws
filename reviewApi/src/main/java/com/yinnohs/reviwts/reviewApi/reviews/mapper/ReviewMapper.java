@@ -1,7 +1,7 @@
 package com.yinnohs.reviwts.reviewApi.reviews.mapper;
 
 import com.google.protobuf.Timestamp;
-import com.yinnohs.reviwts.reviewApi.reviews.dto.review.ReviewResponse;
+import com.yinnohs.reviwts.reviewApi.reviews.dto.ReviewResponse;
 import com.yinnohs.reviwts.reviewRead.reviews.infrastructure.grpc.GetReviewResponse;
 import org.springframework.stereotype.Component;
 

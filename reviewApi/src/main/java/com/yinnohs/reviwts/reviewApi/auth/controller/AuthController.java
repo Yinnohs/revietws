@@ -1,8 +1,8 @@
-package com.yinnohs.reviwts.reviewApi.reviews.controller;
+package com.yinnohs.reviwts.reviewApi.auth.controller;
 
-import com.yinnohs.reviwts.reviewApi.reviews.dto.auth.LoginRequest;
-import com.yinnohs.reviwts.reviewApi.reviews.dto.auth.SignUpRequest;
-import com.yinnohs.reviwts.reviewApi.reviews.service.auth.AuthService;
+import com.yinnohs.reviwts.reviewApi.auth.dto.LoginRequest;
+import com.yinnohs.reviwts.reviewApi.auth.dto.SignUpRequest;
+import com.yinnohs.reviwts.reviewApi.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
