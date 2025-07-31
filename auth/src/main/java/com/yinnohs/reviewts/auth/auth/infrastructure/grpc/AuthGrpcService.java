@@ -58,13 +58,12 @@ public class AuthGrpcService extends AuthsGrpcServiceGrpc.AuthsGrpcServiceImplBa
 
     @Override
     public void isValidToken(IsValidTokenRequest request, StreamObserver<IsValidTokenResponse> responseObserver) {
-
         String token = request.getAuthToken();
-
-
-
-
-        // complete the stream response
+        boolean isValid = isValidTokenUseCase.execute(token);
+        IsValidTokenResponse response = IsValidTokenResponse.newBuilder()
+                .setIsValid(isValid)
+                .build();
+        responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
 }
