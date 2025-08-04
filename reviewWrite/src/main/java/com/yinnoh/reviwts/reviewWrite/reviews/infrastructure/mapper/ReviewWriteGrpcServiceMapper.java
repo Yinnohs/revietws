@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ReviewWriteGrpcServiceMapper {
-    public CreateReviewRequest toCreateReviewRequest(com.yinnoh.reviwts.reviewWrite.reviews.infrastructure.grpc.CreateReviewRequest request) {
+    public CreateReviewRequest toCreateReviewRequest(com.yinnohs.reviwts.reviewWrite.reviews.infrastructure.grpc.CreateReviewRequest request) {
         return new CreateReviewRequest(
                 request.getReviewedAccountId(),
                 request.getReviewerAccountId(),

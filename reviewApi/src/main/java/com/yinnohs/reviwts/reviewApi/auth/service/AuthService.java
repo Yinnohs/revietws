@@ -47,4 +47,18 @@ public class AuthService {
                 response.getRefreshToken()
         );
     }
+
+    public boolean isValidToken(String token) {
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 5251)
+                .usePlaintext()
+                .build();
+
+        var response = AuthsGrpcServiceGrpc.newBlockingStub(channel).isValidToken(
+                com.yinnohs.reviwts.auth.infrastructure.grpc.IsValidTokenRequest.newBuilder()
+                        .setAuthToken(token)
+                        .build()
+        );
+
+        return response.getIsValid();
+    }
 }

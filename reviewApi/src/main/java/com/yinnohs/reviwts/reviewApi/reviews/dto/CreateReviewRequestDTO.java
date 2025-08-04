@@ -5,6 +5,7 @@ public record CreateReviewRequestDTO(
         String reviewerAccountId,
         double score,
         String title,
-        String description
+        String description,
+        String token
 ) {}
 

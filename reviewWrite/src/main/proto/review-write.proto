@@ -4,7 +4,7 @@ import 'google/protobuf/timestamp.proto';
 
 option java_multiple_files = true;
 option java_outer_classname = "ReviewWriteProto";
-option java_package = "com.yinnoh.reviwts.reviewWrite.reviews.infrastructure.grpc";
+option java_package = "com.yinnohs.reviwts.reviewWrite.reviews.infrastructure.grpc";
 
 service ReviewWriteGrpcService {
   rpc CreateReview (CreateReviewRequest) returns (CreateReviewResponse);

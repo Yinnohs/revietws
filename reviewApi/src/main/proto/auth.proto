@@ -7,6 +7,15 @@ option java_package = "com.yinnohs.reviwts.auth.infrastructure.grpc";
 service AuthsGrpcService{
   rpc login(GrpcLoginRequest) returns (AuthResponse);
   rpc register(GrpcSignUpRequest) returns (RegisterResponse);
+  rpc isValidToken(IsValidTokenRequest) returns (IsValidTokenResponse);
+}
+
+message IsValidTokenRequest {
+  string authToken = 1;
+}
+
+message IsValidTokenResponse {
+  bool isValid = 1;
 }
 
 message GrpcLoginRequest {

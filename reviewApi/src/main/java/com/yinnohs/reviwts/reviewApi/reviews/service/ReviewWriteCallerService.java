@@ -20,7 +20,7 @@ public class ReviewWriteCallerService {
                 .setDescription(request.description())
                 .build();
 
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 5251)
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 5253)
                 .usePlaintext()
                 .build();
 

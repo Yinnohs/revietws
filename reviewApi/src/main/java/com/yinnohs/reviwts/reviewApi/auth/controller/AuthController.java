@@ -2,6 +2,8 @@ package com.yinnohs.reviwts.reviewApi.auth.controller;
 
 import com.yinnohs.reviwts.reviewApi.auth.dto.LoginRequest;
 import com.yinnohs.reviwts.reviewApi.auth.dto.SignUpRequest;
+import com.yinnohs.reviwts.reviewApi.auth.dto.VerifyTokenRequest;
+import com.yinnohs.reviwts.reviewApi.auth.dto.VerifyTokenResponse;
 import com.yinnohs.reviwts.reviewApi.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +29,10 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> Login(@RequestBody LoginRequest request) {
         return ResponseEntity.ok(authService.login(request));
+    }
+
+    @PostMapping("/verify-token")
+    public ResponseEntity<?> verifyToken(@RequestBody VerifyTokenRequest request) {
+        return ResponseEntity.ok(new VerifyTokenResponse(authService.isValidToken(request.accessToken())));
     }
 }
